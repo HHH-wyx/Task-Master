@@ -1,0 +1,121 @@
+.h1 {
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.pick {
+  padding: 12rpx 16rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 26rpx;
+}
+
+.sub {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.ops {
+  margin-top: 14rpx;
+}
+
+.ops button {
+  margin-right: 12rpx;
+}
+
+.ops button:last-child {
+  margin-right: 0;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.task {
+  margin-top: 18rpx;
+}
+
+.left {
+  flex: 1;
+  align-items: flex-start;
+}
+
+.check {
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #cbd5e1;
+  margin-top: 6rpx;
+  flex-shrink: 0;
+}
+
+.check-on {
+  background: #111827;
+  border-color: #111827;
+}
+
+.task-main {
+  margin-left: 14rpx;
+  flex: 1;
+}
+
+.task-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.task-desc {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+}
+
+.line {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.tags {
+  justify-content: flex-end;
+}
+
+.tags .pill {
+  margin-left: 10rpx;
+}
+
+.tags .pill:first-child {
+  margin-left: 0;
+}
+
+.actions {
+  margin-top: 14rpx;
+  justify-content: flex-end;
+}
+
+.actions button {
+  margin-left: 12rpx;
+}
+
+.actions button:first-child {
+  margin-left: 0;
+}
+
+.due-today {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #111827;
+}
+
+.due-over {
+  background: #ffffff;
+  color: #111827;
+  border: 1px dashed #111827;
+}
+
+.danger {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #111827;
+}

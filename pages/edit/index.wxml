@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="card">
+    <view class="label">标题</view>
+    <input class="input" placeholder="例如：完成日报" value="{{form.title}}" bindinput="onTitle" maxlength="50" />
+
+    <view class="label">描述</view>
+    <textarea class="textarea" placeholder="补充说明（可选）" value="{{form.desc}}" bindinput="onDesc" maxlength="300" />
+
+    <view class="row space-between item">
+      <view class="label">优先级</view>
+      <picker mode="selector" range="{{priorityOptions}}" range-key="label" value="{{priorityIndex}}" bindchange="onPriority">
+        <view class="pick">{{priorityOptions[priorityIndex].label}}</view>
+      </picker>
+    </view>
+
+    <view class="row space-between item">
+      <view class="label">截止日期</view>
+      <picker mode="date" value="{{form.dueDate}}" bindchange="onDueDate">
+        <view class="pick">{{form.dueDate ? form.dueDate : '不设置'}}</view>
+      </picker>
+    </view>
+
+    <view class="row space-between item">
+      <view class="label">完成状态</view>
+      <switch checked="{{form.completed}}" bindchange="onCompleted" />
+    </view>
+  </view>
+
+  <view class="card actions">
+    <button class="btn btn-primary" bindtap="onSave">保存</button>
+    <button wx:if="{{isEdit}}" class="btn btn-ghost danger" bindtap="onDelete">删除</button>
+  </view>
+
+  <view style="height: 40rpx;"></view>
+</view>

@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="card">
+    <view class="h1">导出</view>
+    <view class="muted sub">复制下面内容到其它设备导入，可实现“手动同步”。</view>
+    <textarea class="textarea" value="{{exportText}}" disabled></textarea>
+    <button class="btn btn-primary" bindtap="onCopy">复制导出内容</button>
+  </view>
+
+  <view class="card mt">
+    <view class="h1">导入</view>
+    <view class="muted sub">粘贴导出内容。支持数组 JSON 或 {"tasks": [...]}。</view>
+
+    <view class="row space-between mode">
+      <view class="muted">导入方式</view>
+      <picker mode="selector" range="{{modeOptions}}" range-key="label" value="{{modeIndex}}" bindchange="onModeChange">
+        <view class="pick">{{modeOptions[modeIndex].label}}</view>
+      </picker>
+    </view>
+
+    <textarea class="textarea" placeholder="在此粘贴 JSON" value="{{importText}}" bindinput="onImportInput"></textarea>
+    <button class="btn btn-primary" bindtap="onImport">执行导入</button>
+    <button class="btn btn-ghost" open-type="share">分享小程序</button>
+  </view>
+
+  <view style="height: 40rpx;"></view>
+</view>

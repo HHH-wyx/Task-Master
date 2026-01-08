@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="card header">
+    <view class="row space-between">
+      <view class="row">
+        <image wx:if="{{user && user.avatarUrl}}" class="avatar" src="{{user.avatarUrl}}"></image>
+        <view class="user-block">
+          <view class="title">{{user && user.nickName ? user.nickName : '未登录'}} </view>
+          <view class="muted sub">{{progressText}}</view>
+        </view>
+      </view>
+
+      <view class="row header-actions">
+        <button class="btn btn-ghost" size="mini" bindtap="onLogin">{{user ? '更新' : '登录'}}</button>
+        <button class="btn btn-ghost" size="mini" open-type="share">分享</button>
+      </view>
+    </view>
+
+    <view class="progress-wrap">
+      <view class="progress-bg">
+        <view class="progress-fg" style="width: {{progressPercent}}%;"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card toolbar">
+    <view class="row space-between">
+      <input class="input search" placeholder="搜索标题/描述" value="{{keyword}}" bindinput="onKeywordInput" confirm-type="search" />
+    </view>
+
+    <view class="filters">
+      <view class="row tabs">
+        <view class="tab {{filterTab==='all'?'tab-active':''}}" data-value="all" bindtap="onTab">全部</view>
+        <view class="tab {{filterTab==='active'?'tab-active':''}}" data-value="active" bindtap="onTab">进行中</view>
+        <view class="tab {{filterTab==='done'?'tab-active':''}}" data-value="done" bindtap="onTab">已完成</view>
+      </view>
+
+      <picker mode="selector" range="{{priorityOptions}}" range-key="label" value="{{priorityIndex}}" bindchange="onPriorityChange">
+        <view class="priorityPick">优先级：{{priorityOptions[priorityIndex].label}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view wx:if="{{visibleTasks.length===0}}" class="empty muted">暂无任务</view>
+
+  <view wx:for="{{visibleTasks}}" wx:key="id" class="card task" bindtap="onOpen" data-id="{{item.id}}">
+    <view class="task-body">
+      <view class="task-left">
+        <view class="task-title {{item.completed ? 'line' : ''}}">{{item.title}}</view>
+        <view wx:if="{{item.desc}}" class="muted task-desc {{item.completed ? 'line' : ''}}">{{item.desc}}</view>
+      </view>
+
+      <view class="task-right">
+        <view class="task-meta">
+          <block wx:if="{{item.dueDate}}">
+            <view class="pill pill-gray {{item.dueClass}}">{{item.dueDate}}</view>
+            <view class="pill {{item.priorityClass}}">{{item.priorityLabel}}</view>
+          </block>
+          <block wx:else>
+            <view class="pill {{item.priorityClass}}">{{item.priorityLabel}}</view>
+          </block>
+        </view>
+
+        <view class="task-actions">
+          <button class="btn btn-ghost task-edit" size="mini" catchtap="onEdit" data-id="{{item.id}}">编辑</button>
+          <button class="btn btn-ghost task-done" size="mini" catchtap="onToggle" data-id="{{item.id}}">{{item.completed ? '恢复' : '完成'}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button class="fab" bindtap="onAdd">＋</button>
+
+  <view style="height: 140rpx;"></view>
+</view>

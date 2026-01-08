@@ -1,0 +1,39 @@
+.label {
+  font-size: 26rpx;
+  color: #374151;
+  margin-top: 18rpx;
+  margin-bottom: 10rpx;
+}
+
+.item {
+  margin-top: 14rpx;
+}
+
+.pick {
+  padding: 12rpx 16rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 26rpx;
+}
+
+.actions {
+  margin-top: 18rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions button {
+  margin-top: 16rpx;
+}
+
+.actions button:first-child {
+  margin-top: 0;
+}
+
+.danger {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #111827;
+}

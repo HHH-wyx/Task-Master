@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="card">
+    <view class="row space-between">
+      <view class="h1">选择日期</view>
+      <picker mode="date" value="{{selectedDate}}" bindchange="onDateChange">
+        <view class="pick">{{selectedDate}}</view>
+      </picker>
+    </view>
+
+    <view class="muted sub">展示：截止日期≥{{selectedDate}} + 无截止日期｜共 {{dayTotal}}（待办 {{dayTodo}} / 已完成 {{dayDone}}）</view>
+
+    <view class="row ops">
+      <button class="btn btn-primary" size="mini" bindtap="onAddForDate">新建当日任务</button>
+      <button class="btn btn-ghost" size="mini" open-type="share">分享小程序</button>
+    </view>
+  </view>
+
+  <view wx:if="{{visibleTasks.length===0}}" class="empty muted">暂无任务</view>
+
+  <view wx:for="{{visibleTasks}}" wx:key="id" class="card task">
+    <view class="row space-between">
+      <view class="row left" catchtap="onToggle" data-id="{{item.id}}">
+        <view class="check {{item.completed ? 'check-on' : ''}}"></view>
+        <view class="task-main">
+          <view class="task-title {{item.completed ? 'line' : ''}}">{{item.title}}</view>
+          <view wx:if="{{item.desc}}" class="muted task-desc {{item.completed ? 'line' : ''}}">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="row tags">
+        <block wx:if="{{item.dueDate}}">
+          <view class="pill pill-gray {{item.dueClass}}">{{item.dueDate}}</view>
+          <view class="pill {{item.priorityClass}}">{{item.priorityLabel}}</view>
+        </block>
+        <block wx:else>
+          <view class="pill pill-gray">无日期</view>
+          <view class="pill {{item.priorityClass}}">{{item.priorityLabel}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view style="height: 140rpx;"></view>
+</view>

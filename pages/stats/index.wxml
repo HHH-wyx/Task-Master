@@ -1,0 +1,60 @@
+<view class="container">
+  <view class="card">
+    <view class="h1">概览</view>
+    <view class="row space-between kv">
+      <view class="muted">总任务</view>
+      <view class="v">{{stats.total}}</view>
+    </view>
+    <view class="row space-between kv">
+      <view class="muted">进行中</view>
+      <view class="v">{{stats.active}}</view>
+    </view>
+    <view class="row space-between kv">
+      <view class="muted">已完成</view>
+      <view class="v">{{stats.done}}</view>
+    </view>
+
+    <view class="progress-wrap">
+      <view class="progress-bg">
+        <view class="progress-fg" style="width: {{progressPercent}}%;"></view>
+      </view>
+      <view class="muted sub">完成率 {{progressPercent}}%</view>
+    </view>
+  </view>
+
+  <view class="card mt">
+    <view class="h1">优先级分布</view>
+    <view class="row space-between kv">
+      <view class="row">
+        <view class="pill pill-red">高</view>
+      </view>
+      <view class="v">{{stats.byPriority.high}}</view>
+    </view>
+    <view class="row space-between kv">
+      <view class="row">
+        <view class="pill pill-gray">中</view>
+      </view>
+      <view class="v">{{stats.byPriority.medium}}</view>
+    </view>
+    <view class="row space-between kv">
+      <view class="row">
+        <view class="pill pill-green">低</view>
+      </view>
+      <view class="v">{{stats.byPriority.low}}</view>
+    </view>
+  </view>
+
+  <view class="card mt">
+    <view class="h1">时间相关</view>
+    <view class="row space-between kv">
+      <view class="muted">今日到期（未完成）</view>
+      <view class="v">{{dueToday}}</view>
+    </view>
+    <view class="row space-between kv">
+      <view class="muted">已逾期（未完成）</view>
+      <view class="v">{{overdue}}</view>
+    </view>
+  </view>
+
+  <view style="height: 140rpx;"></view>
+</view>

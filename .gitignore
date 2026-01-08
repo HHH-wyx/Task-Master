@@ -1,0 +1,23 @@
+# 微信小程序忽略文件
+.project.private.config.json
+miniprogram_npm
+node_modules
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+
+# 云开发临时文件
+.cloudbase/
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 调试文件
+*.map
+debug.log
